@@ -1,0 +1,9 @@
+<h1><%= @klass.to_s  %></h1>
+
+<p> Fields </p>
+
+<ul>
+  <% @object.attributes.each do |column| %>
+    <li><%= "#{column[0]} == #{column[1]}" %> </li>
+  <% end %>
+</ul>
