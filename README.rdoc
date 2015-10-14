@@ -1,3 +1,19 @@
 = Presto
 
 This project rocks and uses MIT-LICENSE.
+
+This is a Work in progress of an admin interface
+
+to test this gem you can run
+
+
+     rails new admin_demo --skip-bundle
+     cd admin_demo
+     echo "gem 'presto', git: 'https://github.com/luiskhernandez/presto'" >> Gemfile
+     bundle install
+     rails generate model Post title:string text:text
+     rails generate model Comment  post:references email:string text:text
+     rake db:migrate
+
+Then in your config/routes add
+mount Presto::Engine => '/presto'
