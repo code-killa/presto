@@ -53,7 +53,7 @@ module Presto
     end
 
     def save_item
-      redirect_to item_path(name: @klass, id: @object.id) if @object.save
+      redirect_to item_path(name: @klass.to_s.downcase, id: @object.id) if @object.save
     end
 
     def item_scope
