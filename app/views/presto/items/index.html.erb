@@ -3,7 +3,7 @@
 
 <%= link_to "create new", model_new_path %>
 <ul>
-  <% @object_list.each do |model| %>
+  <% @item_list.each do |model| %>
     <li>
       <%= model  %>
       <%# <%= link_to  model.singularize , admin_model_index_path(name: model.singularize) %1> %>

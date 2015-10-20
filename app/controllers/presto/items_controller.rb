@@ -40,20 +40,20 @@ module Presto
 
     private
     def load_items
-      @object_list ||= item_scope.to_a
+      @item_list ||= item_scope
     end
 
     def load_item
-      @object ||= item_scope.find(params[:id])
+      @item ||= item_scope.find(params[:id])
     end
 
     def build_item
-      @object ||= item_scope.build
-      @object.attributes = item_params
+      @item ||= item_scope.build
+      @item.attributes = item_params
     end
 
     def save_item
-      redirect_to item_path(name: @klass.to_s.downcase, id: @object.id) if @object.save
+      redirect_to item_path(name: @klass.to_s.downcase, id: @item.id) if @item.save
     end
 
     def item_scope
