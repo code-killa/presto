@@ -16,4 +16,4 @@ to test this gem you can run
      rake db:migrate
 
 Then in your config/routes add
-mount Presto::Engine => '/presto'
+mount Presto::Engine => '/admin'

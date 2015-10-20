@@ -62,11 +62,17 @@ module Presto
 
     def item_params
       item_params = params[params[:name]]
-      item_params ? item_params.permit(:title): {}
+      item_params ? item_params.permit(columns_names): {}
     end
 
     def load_class
       @klass = params[:name].classify.constantize
+    end
+
+    def columns_names
+      @klass_column_names ||= @klass.column_names
+      @klass_column_names.delete("id")
+      @klass_column_names.map { |column| column.to_sym }
     end
 
   end

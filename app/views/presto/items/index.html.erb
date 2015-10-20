@@ -1,13 +1,35 @@
 <h1>Presto::Items::index</h1>
-<p> <%= @klass.to_s %> list</p>
 
-<%= link_to "create new", model_new_path %>
+<div class="panel panel-default">
+  <!-- Default panel contents -->
+  <div class="panel-heading"> <%= @klass.to_s %> list </div>
+  <div class="panel-body">
+    <div class="row">
+      <div class="col-lg-3">
+        <%= link_to "create new", model_new_path, class: "btn btn-primary" %>
+      </div>
+    </div>
+    <table class="table">
+      <thead>
+        <tr>
+          <% @klass.column_names.each do |name|  %>
+            <th><%= name %></th>
+          <% end %>
+        </tr>
+      </thead>
+      <tbody>
+        <% @item_list.each do |model| %>
+          <tr>
+            <% @klass.column_names.each do |name|  %>
+              <td><%= model.send(name.to_sym)  %></td>
+            <% end %>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+
+</div>
 <ul>
-  <% @item_list.each do |model| %>
-    <li>
-      <%= model  %>
-      <%# <%= link_to  model.singularize , admin_model_index_path(name: model.singularize) %1> %>
-    </li>
-  <% end %>
 </ul>
 
