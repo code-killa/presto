@@ -19,6 +19,7 @@ Gem::Specification.new do |s|
 
   s.add_dependency "rails", "~> 4.2.4"
   s.add_dependency "formtastic", "~> 3.0"
+  s.add_dependency "formtastic-bootstrap"
 
   s.add_development_dependency "sqlite3"
 end
