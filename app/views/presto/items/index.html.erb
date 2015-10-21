@@ -9,6 +9,8 @@
         <%= link_to "create new", model_new_path, class: "btn btn-primary" %>
       </div>
     </div>
+    <p>
+    </p>
     <table class="table">
       <thead>
         <tr>
@@ -27,6 +29,7 @@
         <% end %>
       </tbody>
     </table>
+    <%= will_paginate @item_list, renderer: ::BootstrapPagination::Rails %>
   </div>
 
 </div>

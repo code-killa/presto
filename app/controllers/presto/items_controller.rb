@@ -40,7 +40,7 @@ module Presto
 
     private
     def load_items
-      @item_list ||= item_scope
+      @item_list ||= item_scope.paginate(page: params[:page])
     end
 
     def load_item
@@ -70,8 +70,7 @@ module Presto
     end
 
     def columns_names
-      @klass_column_names ||= @klass.column_names
-      @klass_column_names.delete("id")
+      @klass_column_names ||= @klass.column_names.reject{ |item| item == "id" }
       @klass_column_names.map { |column| column.to_sym }
     end
 

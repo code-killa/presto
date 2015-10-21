@@ -1,6 +1,9 @@
 require "presto/engine"
 require 'presto/config/model'
 require 'formtastic'
+require 'presto/settings'
+require 'will_paginate'
+require 'will_paginate-bootstrap'
 
 module Presto
   class PrestoRailtie < Rails::Railtie
