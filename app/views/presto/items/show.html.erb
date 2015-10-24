@@ -1,7 +1,7 @@
 <h1><%= @klass.to_s  %></h1>
 
 <div class="row">
-  <%= link_to "Return to #{@klass} list ", model_index_path(name: @klass.to_s.downcase), class: "btn btn-primary" %>
+  <%= link_to "Return to #{@klass} list ", items_path(name: @klass.to_s.downcase), class: "btn btn-primary" %>
 </div>
 
 <p> Fields </p>

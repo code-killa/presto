@@ -6,7 +6,7 @@
   <div class="panel-body">
     <div class="row">
       <div class="col-lg-3">
-        <%= link_to "create new", model_new_path, class: "btn btn-primary" %>
+        <%= link_to "create new", new_item_path, class: "btn btn-primary" %>
       </div>
     </div>
     <p>
@@ -17,6 +17,7 @@
           <% @klass.column_names.each do |name|  %>
             <th><%= name %></th>
           <% end %>
+          <th></th>
         </tr>
       </thead>
       <tbody>
@@ -25,6 +26,11 @@
             <% @klass.column_names.each do |name|  %>
               <td><%= model.send(name.to_sym)  %></td>
             <% end %>
+            <td>
+              <%= link_to item_path(@klass, model), method: :delete, data: { confirm: "Are you sure ?" } do %>
+                <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+              <% end %>
+            </td>
           </tr>
         <% end %>
       </tbody>

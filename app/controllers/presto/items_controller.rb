@@ -2,7 +2,6 @@ require_dependency "presto/application_controller"
 
 module Presto
   class ItemsController < ApplicationController
-
     before_action :load_class
     def index
       load_items
@@ -35,7 +34,7 @@ module Presto
     def destroy
       load_item
       @item.destroy
-      redirect to admin_item_path
+      redirect_to items_path(name: @klass)
     end
 
     private
@@ -70,7 +69,7 @@ module Presto
     end
 
     def columns_names
-      @klass_column_names ||= @klass.column_names.reject{ |item| item == "id" }
+      @klass_column_names ||= @klass.column_names.reject { |item| item == "id" }
       @klass_column_names.map { |column| column.to_sym }
     end
 

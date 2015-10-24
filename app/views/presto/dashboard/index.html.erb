@@ -5,7 +5,7 @@
 <ul>
   <% @models_list.each do |model| %>
     <li>
-      <%= link_to  model.singularize , model_index_path(name: model.singularize) %>
+      <%= link_to  model.singularize , presto.items_path(name: model.singularize) %>
     </li>
   <% end %>
 </ul>
