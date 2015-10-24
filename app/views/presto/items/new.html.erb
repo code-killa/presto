@@ -1,7 +1,1 @@
-<p> Adding new <%= @klass.to_s.downcase  %> </p>
-<div>
-  <%= semantic_form_for @item, url: presto.items_path(@klass.to_s.downcase) do |f| %>
-    <%= f.inputs %>
-    <%= f.actions %>
-  <% end %>
-</div>
+<%= render "form", klass: @klass, item: @item, url: presto.items_path(@klass.to_s.downcase) %>
