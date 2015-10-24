@@ -3,23 +3,41 @@
   <head>
     <title>Presto</title>
     <%= stylesheet_link_tag    "presto/application", media: "all" %>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <%= csrf_meta_tags %>
   </head>
-  <body>
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <body class="hold-transition skin-blue sidebar-mini">
+    <div class="wrapper">
+      <%= render partial: "presto/header" %>
+      <!-- Left side column. contains the logo and sidebar -->
+      <%= render partial: "presto/sidebar" %>
+      <!-- Content Wrapper. Contains page content -->
+      <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+          <%= yield :page_header %>
+          <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+            <li class="active">Dashboard</li>
+          </ol>
+        </section>
 
-    <!-- Optional theme -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
-    <h1>Presto::Layout</h1>
-    <p>
-      <%= link_to "Dashboard", dashboard_path  %>
-    </p>
-    <div class="container">
-      <%= yield %>
-    </div>
+        <!-- Main content -->
+        <section class="content">
+          <%= yield %>
+        </section><!-- /.content -->
+      </div><!-- /.content-wrapper -->
+      <footer class="main-footer">
+        <div class="pull-right hidden-xs">
+          <b>Version</b> 2.3.0
+        </div>
+        <strong>Copyright &copy; 2014-2015 <a href="http://almsaeedstudio.com">Almsaeed Studio</a>.</strong> All rights reserved.
+      </footer>
 
-    <%= javascript_include_tag "presto/application" %>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha/js/bootstrap.min.js"></script>
+    </div><!-- ./wrapper -->
+
   </body>
 </html>
