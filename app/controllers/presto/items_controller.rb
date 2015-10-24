@@ -61,7 +61,7 @@ module Presto
 
     def item_params
       item_params = params[params[:name]]
-      item_params ? item_params.permit(columns_names): {}
+      item_params ? item_params.permit(columns_names << klass_relationships) : {}
     end
 
     def load_class
@@ -71,6 +71,17 @@ module Presto
     def columns_names
       @klass_column_names ||= @klass.column_names.reject { |item| item == "id" }
       @klass_column_names.map { |column| column.to_sym }
+    end
+
+    def klass_relationships
+      resp = {}
+      @klass.reflect_on_all_associations.each do |relationship|
+        case relationship.macro.to_s
+        when "has_many"
+          resp["#{relationship.plural_name}_attributes".to_sym] = relationship.klass.column_names.map{ |column| column.to_sym }
+        end
+      end
+      resp
     end
 
   end

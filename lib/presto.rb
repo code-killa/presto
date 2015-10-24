@@ -5,6 +5,7 @@ require 'presto/settings'
 require 'will_paginate'
 require 'will_paginate-bootstrap'
 require 'haml'
+require 'pry'
 
 module Presto
   class PrestoRailtie < Rails::Railtie
