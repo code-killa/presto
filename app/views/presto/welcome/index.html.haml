@@ -1,0 +1,12 @@
+%h1
+  Hola mundo index Presto::Index
+models
+%ul
+  - @models.each do |model|
+    %li
+      = model.to_s
+gems
+%ul
+  - @gems.each do |gem|
+    %li
+      = gem.to_s

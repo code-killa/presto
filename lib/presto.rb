@@ -4,6 +4,7 @@ require 'formtastic'
 require 'presto/settings'
 require 'will_paginate'
 require 'will_paginate-bootstrap'
+require 'haml'
 
 module Presto
   class PrestoRailtie < Rails::Railtie

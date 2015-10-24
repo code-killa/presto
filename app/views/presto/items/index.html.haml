@@ -1,0 +1,22 @@
+- content_for :content_header do
+  %h1
+    = @klass.to_s.capitalize
+    %small Control panel
+.box
+  / Default box contents
+  .box-header.with-border
+    = @klass.to_s
+    list
+  .box-body
+    .row
+      .col-lg-3
+        = link_to "create new", new_item_path, class: "btn btn-primary"
+    %p
+    %table.table
+      %thead
+        %tr
+          - @klass.column_names.each do |name|
+            %th= name
+          %th
+      %tbody= render partial: "item", collection: @item_list, as: :model, locals: {klass: @klass}
+    = will_paginate @item_list, renderer: ::BootstrapPagination::Rails

@@ -2,7 +2,14 @@ PATH
   remote: .
   specs:
     presto (0.0.1)
+      formtastic (~> 3.0)
+      formtastic-bootstrap
+      haml
+      jquery-rails
       rails (~> 4.2.4)
+      turbolinks
+      will_paginate
+      will_paginate-bootstrap
 
 GEM
   remote: https://rubygems.org/
@@ -44,18 +51,36 @@ GEM
       tzinfo (~> 1.1)
     arel (6.0.3)
     builder (3.2.2)
+    coffee-rails (4.1.0)
+      coffee-script (>= 2.2.0)
+      railties (>= 4.0.0, < 5.0)
+    coffee-script (2.4.1)
+      coffee-script-source
+      execjs
+    coffee-script-source (1.9.1.1)
     erubis (2.7.0)
+    execjs (2.6.0)
+    formtastic (3.1.3)
+      actionpack (>= 3.2.13)
+    formtastic-bootstrap (3.1.1)
+      formtastic (>= 3.0)
     globalid (0.3.6)
       activesupport (>= 4.1.0)
+    haml (4.0.7)
+      tilt
     i18n (0.7.0)
+    jquery-rails (4.0.5)
+      rails-dom-testing (~> 1.0)
+      railties (>= 4.2.0)
+      thor (>= 0.14, < 2.0)
     json (1.8.3)
     loofah (2.0.3)
       nokogiri (>= 1.5.9)
     mail (2.6.3)
       mime-types (>= 1.16, < 3)
-    mime-types (2.6.1)
+    mime-types (2.6.2)
     mini_portile (0.6.2)
-    minitest (5.8.0)
+    minitest (5.8.1)
     nokogiri (1.6.6.2)
       mini_portile (~> 0.6.0)
     rack (1.6.4)
@@ -86,17 +111,23 @@ GEM
       rake (>= 0.8.7)
       thor (>= 0.18.1, < 2.0)
     rake (10.4.2)
-    sprockets (3.3.4)
-      rack (~> 1.0)
-    sprockets-rails (2.3.2)
+    sprockets (3.4.0)
+      rack (> 1, < 3)
+    sprockets-rails (2.3.3)
       actionpack (>= 3.0)
       activesupport (>= 3.0)
       sprockets (>= 2.8, < 4.0)
     sqlite3 (1.3.10)
     thor (0.19.1)
     thread_safe (0.3.5)
+    tilt (2.0.1)
+    turbolinks (2.5.3)
+      coffee-rails
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
+    will_paginate (3.0.7)
+    will_paginate-bootstrap (1.0.1)
+      will_paginate (>= 3.0.3)
 
 PLATFORMS
   ruby
@@ -104,3 +135,6 @@ PLATFORMS
 DEPENDENCIES
   presto!
   sqlite3
+
+BUNDLED WITH
+   1.10.6
