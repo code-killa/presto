@@ -1,0 +1,7 @@
+%h1= @klass.to_s
+.row
+  = link_to "Return to #{@klass} list ", items_path(name: @klass.to_s.downcase), class: "btn btn-primary"
+%p Fields
+%ul
+  - @item.attributes.each do |column|
+    %li= "#{column[0]} == #{column[1]}"
