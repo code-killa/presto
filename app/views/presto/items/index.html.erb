@@ -1,9 +1,10 @@
-<h1>Presto::Items::index</h1>
-
-<div class="box panel-default">
+<% content_for :content_header do %>
+  <h1> <%= @klass.to_s.capitalize %> <small>Control panel</small> </h1>
+<% end %>
+<div class="box">
   <!-- Default box contents -->
-  <div class="panel-heading"> <%= @klass.to_s %> list </div>
-  <div class="panel-body">
+  <div class="box-header with-border"> <%= @klass.to_s %> list </div>
+  <div class="box-body">
     <div class="row">
       <div class="col-lg-3">
         <%= link_to "create new", new_item_path, class: "btn btn-primary" %>

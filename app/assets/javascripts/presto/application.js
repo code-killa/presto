@@ -12,4 +12,8 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require_tree .
+//= require turbolinks
+//= require presto/jquery_confirm
+//= require presto/app
+//= require presto/bootstrap
+//= require presto/items
