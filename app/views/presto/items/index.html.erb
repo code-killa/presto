@@ -21,18 +21,7 @@
         </tr>
       </thead>
       <tbody>
-        <% @item_list.each do |model| %>
-          <tr>
-            <% @klass.column_names.each do |name|  %>
-              <td><%= model.send(name.to_sym)  %></td>
-            <% end %>
-            <td>
-              <%= link_to item_path(@klass, model), method: :delete, data: { confirm: "Are you sure ?" } do %>
-                <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
-              <% end %>
-            </td>
-          </tr>
-        <% end %>
+        <%= render partial: "item", collection: @item_list, as: :model, locals: {klass: @klass} %>
       </tbody>
     </table>
     <%= will_paginate @item_list, renderer: ::BootstrapPagination::Rails %>
