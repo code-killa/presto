@@ -7,7 +7,7 @@ module Presto
       end
 
       def mount_engine
-        route("mount Presto::Engine => '/admin', as: 'admin'")
+        route("mount Presto::Engine => '/admin'")
         template 'initializers/presto.rb', File.join('config', 'initializers', 'presto.rb')
       end
 
