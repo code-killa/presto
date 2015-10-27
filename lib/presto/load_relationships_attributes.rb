@@ -9,6 +9,7 @@ module Presto
       @klass.reflect_on_all_associations.each do |relationship|
         create_params_for_association(relationship)
       end
+      binding.pry
       @resp
     end
 
@@ -30,7 +31,7 @@ module Presto
         @resp["#{relationship.plural_name}_attributes".to_sym] = attributes
       end
 
-      self.send("#{relationship.macro}_attributes".to_sym, relationship)
+      self.send("#{relationship.macro}_attributes".to_sym, relationship) if Presto.module_eval("load_#{relationship.macro}_relationships")
     end
   end
 end
