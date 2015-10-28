@@ -9,7 +9,6 @@ module Presto
       @klass.reflect_on_all_associations.each do |relationship|
         create_params_for_association(relationship)
       end
-      binding.pry
       @resp
     end
 
