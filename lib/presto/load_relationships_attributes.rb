@@ -23,7 +23,7 @@ module Presto
       end
 
       self.class.send :define_method, "#{relationship}_through_attributes".to_sym do |relationship, attributes|
-        @resp["#{relationship.options[:through]}_attributes".to_sym] << {"#{relationship.plural_name}_attributes": attributes}
+        @resp["#{relationship.options[:through]}_attributes".to_sym] << {"#{relationship.plural_name}_attributes".to_sym => attributes}
       end
 
       self.class.send :define_method, "#{relationship}_basic_attributes".to_sym do |relationship, attributes|
