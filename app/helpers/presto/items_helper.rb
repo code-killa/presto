@@ -1,5 +1,9 @@
 module Presto
   module ItemsHelper
+    def has_nested_relationship?
+       Presto::nested_attributes
+    end
+
     def th_item(colum_name)
       return colum_name unless colum_name.include?("_id")
       colum_name.gsub("_id","")
