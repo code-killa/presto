@@ -5,7 +5,4 @@
     %small Control panel
 %p Modes in de app
 %p= Presto::demo
-%ul
-  - @models_list.each do |model|
-    %li
-      = link_to  model.singularize , presto.items_path(name: model.singularize)
+%ul= render partial: "menu_li", collection: @models_list, as: :model

@@ -1,0 +1,4 @@
+%li{class: "#{'active' if params[:name] == model.singularize }"}
+  = link_to items_path(name: model.singularize) do
+    %i.fa.fa-link
+    %span= model.singularize
