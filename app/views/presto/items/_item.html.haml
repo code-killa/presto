@@ -1,6 +1,6 @@
 %tr
   - klass.column_names.each do |name|
-    %td= model.send(name.to_sym)
+    %td= td_item(model,name)
   %td
     = link_to item_path(klass, model), method: :delete, data: { confirm: "Are you sure ?" } do
       %span.glyphicon.glyphicon-trash{"aria-hidden" => "true"}

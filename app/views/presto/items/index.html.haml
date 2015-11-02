@@ -16,7 +16,7 @@
       %thead
         %tr
           - @klass.column_names.each do |name|
-            %th= name
+            %th= th_item(name)
           %th
       %tbody= render partial: "item", collection: @item_list, as: :model, locals: {klass: @klass}
     = will_paginate @item_list, renderer: ::BootstrapPagination::Rails
