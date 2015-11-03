@@ -50,6 +50,9 @@ module Presto
     def build_item
       @item ||= item_scope.build
       @item.attributes = item_params
+      @klass.nested_attributes_options.keys.each do |nested_key|
+        1.times { nested_relationship(nested_key).build } if Presto::nested_attributes && nested_relationship(nested_key).empty?
+      end
     end
 
     def save_item
@@ -72,6 +75,10 @@ module Presto
     def columns_names
       @klass_column_names ||= @klass.column_names.reject { |item| item == "id" }
       @klass_column_names.map { |column| column.to_sym } << Presto::LoadRelationshipsAttributes.new(model: @klass).klass_relationships
+    end
+
+    def nested_relationship(key)
+      @item.send(key)
     end
   end
 end

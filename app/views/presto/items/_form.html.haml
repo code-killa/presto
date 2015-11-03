@@ -3,4 +3,5 @@
 %div
   = semantic_form_for item, url: url do |f|
     = f.inputs
+    = render partial: "presto/items/nested_forms", locals: {f: f}
     = f.actions

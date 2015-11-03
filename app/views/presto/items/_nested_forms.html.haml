@@ -1,0 +1,11 @@
+- if has_nested_relationship?
+  - @klass.nested_attributes_options.keys.each do |nested_key|
+    %fieldset
+      %legend= nested_key.to_s.upcase
+    = f.semantic_fields_for nested_key do |nested|
+      - fields = nested_key.to_s.classify.constantize.column_names - ["created_at", "updated_at", "id", "#{@klass.to_s.downcase}_id"]
+      - fields.each do |column|
+        - if column.to_s.include?('_id')
+          = nested.input column.to_s.gsub('_id','').to_sym
+        - else
+          = nested.input column

@@ -10,4 +10,7 @@ module Presto
 
   mattr_accessor :load_belongs_to_relationships
   @@load_belongs_to_relationships = false
+
+  mattr_accessor :nested_attributes
+  @@nested_attributes = true
 end
