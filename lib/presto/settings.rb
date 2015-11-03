@@ -7,4 +7,7 @@ module Presto
 
   mattr_accessor :load_has_one_relationships
   @@load_has_one_relationships = true
+
+  mattr_accessor :load_belongs_to_relationships
+  @@load_belongs_to_relationships = false
 end

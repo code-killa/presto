@@ -2,7 +2,6 @@
 // All this logic will automatically be available in application.js.
 //
 
-$(document).on('ready page:load', function() {
   //Override the default confirm dialog by rails
   $.rails.allowAction = function(link){
     if (link.data("confirm") == undefined){
@@ -30,4 +29,3 @@ $(document).on('ready page:load', function() {
     });
   };
   //Override the default confirm dialog by rails
-});

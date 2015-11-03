@@ -13,8 +13,7 @@
 
 //Make sure jQuery has been loaded before app.js
 //
-// $(document).on('ready page:load page:change', function() {
-//   console.log("app");
+$(document).on('ready page:load', function() {
 if (typeof jQuery === "undefined") {
   throw new Error("AdminLTE requires jQuery");
 }
@@ -747,4 +746,4 @@ function _init() {
     });
   };
 }(jQuery));
-// });
+});
