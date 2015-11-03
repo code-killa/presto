@@ -9,9 +9,16 @@
     list
   .box-body
     .row
+      .col-lg-5
+        = search_form_for @q, url: items_path(@klass.to_s.downcase), class: 'form-inline' do |f|
+          = f.label :search
+          = f.search_field search_text_field_sym(@klass), class: 'form-control'
+      .col-lg-3
+        - if params[:q]
+          = link_to "Clear", items_path(@klass.to_s.downcase)
       .col-lg-3
         = link_to "create new", new_item_path, class: "btn btn-primary"
-    %p
+    %hr
     %table.table.dataTable
       %thead
         %tr
