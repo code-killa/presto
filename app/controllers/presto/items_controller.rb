@@ -40,7 +40,8 @@ module Presto
 
     private
     def load_items
-      @item_list ||= item_scope.paginate(page: params[:page])
+      @q = item_scope.ransack(params[:q])
+      @item_list = @q.result(distinct: true).paginate(page: params[:page])
     end
 
     def load_item

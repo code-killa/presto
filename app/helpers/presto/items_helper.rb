@@ -4,9 +4,9 @@ module Presto
        Presto::nested_attributes
     end
 
-    def th_item(colum_name)
-      return colum_name unless colum_name.include?("_id")
-      colum_name.gsub("_id","")
+    def th_item(q,colum_name)
+      return sort_link(q,colum_name) unless colum_name.include?("_id")
+      sort_link(q,colum_name,colum_name.gsub("_id",""))
     end
 
     def td_item(model,name)
