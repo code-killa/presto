@@ -1,7 +1,9 @@
 require "presto/engine"
 require 'presto/config/model'
-require 'formtastic'
 require 'presto/settings'
+require "presto/registers/register"
+
+require 'formtastic'
 require 'will_paginate'
 require 'will_paginate-bootstrap'
 require 'haml'
