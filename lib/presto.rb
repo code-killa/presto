@@ -13,6 +13,8 @@ module Presto
   def self.setup
     yield self
   end
+  Register.find_definitions
+
   class PrestoRailtie < Rails::Railtie
     initializer "new_initialization_behavior" do |app|
       app.routes.append do
