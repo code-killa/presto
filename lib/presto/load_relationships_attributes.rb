@@ -1,3 +1,4 @@
+require "services/retrive_config"
 module Presto
   class LoadRelationshipsAttributes
     def initialize(model: nil)
@@ -30,12 +31,8 @@ module Presto
         @resp["#{relationship.plural_name}_attributes".to_sym] = attributes
       end
 
-      #if Presto.module_eval("load_#{relationship.macro}_relationships")
-      if Presto.registry.has_key?(relationship.active_record.to_s.downcase.to_sym) #Return the Model name as a sym e.g: :post, :comment
-        if Presto.registry[relationship.active_record.to_s.downcase.to_sym]["load_#{relationship.macro}_relationships".to_sym]
-          self.send("#{relationship.macro}_attributes".to_sym, relationship)
-        end
-      elsif Presto.module_eval("load_#{relationship.macro}_relationships")
+      #self.send("#{relationship.macro}_attributes".to_sym, relationship) if Presto.module_eval("load_#{relationship.macro}_relationships")
+      if Presto::Services::RetriveConfig.new(active_record_klass: relationship.active_record, "load_#{relationship.macro}_relationships").accpet_this_config?
         self.send("#{relationship.macro}_attributes".to_sym, relationship)
       end
     end
