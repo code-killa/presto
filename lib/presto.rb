@@ -1,7 +1,9 @@
 require "presto/engine"
 require 'presto/config/model'
-require 'formtastic'
 require 'presto/settings'
+require "presto/admin"
+
+require 'formtastic'
 require 'will_paginate'
 require 'will_paginate-bootstrap'
 require 'haml'
@@ -11,6 +13,7 @@ module Presto
   def self.setup
     yield self
   end
+  Admin.find_definitions
   class PrestoRailtie < Rails::Railtie
     initializer "new_initialization_behavior" do |app|
       app.routes.append do
